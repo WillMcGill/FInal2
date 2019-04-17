@@ -27,7 +27,7 @@ let results = fetch(url);
         console.log(data);
         data.routes.map(function(n){
             routes += `
-                <li>${n.strRoute}</li>
+                <li>${n.name}</li>
             `
         })
         
