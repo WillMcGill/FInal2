@@ -7,7 +7,13 @@ function getTheData() {
 
 
 let routes;
-let results = fetch('https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=37.727839&lon=-83.635396&maxDistance=100&minDiff=5.6&maxDiff=5.14&key=200424196-5fdf40349774a101d0c0d762b625f5b1');
+
+const apiURL ='https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=37.727839&lon=-83.635396&maxDistance=100&minDiff='
+
+let grade = document.getElementById("grade").value 
+const url = apiURL + grade + "&maxDiff=5.14&key=200424196-5fdf40349774a101d0c0d762b625f5b1"
+
+let results = fetch(url);
     results.then(
         function(x) {
         return x.json();
@@ -17,7 +23,7 @@ let results = fetch('https://www.mountainproject.com/data/get-routes-for-lat-lon
         //routes = y;
         let routes =
         ` `
-        console.log(data.routes);
+        console.log(data);
         data.routes.map(function(n){
             routes += `
                 <li>${n.strRoute}</li>
@@ -25,7 +31,7 @@ let results = fetch('https://www.mountainproject.com/data/get-routes-for-lat-lon
         })
         
             
-        console.log(routes.length);
+        console.log(data.routes.length);
         //console.log(count);
         document.getElementById('myRoutes').innerHTML = routes
 
