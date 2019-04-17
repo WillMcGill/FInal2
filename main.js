@@ -10,8 +10,9 @@ let routes;
 
 const apiURL ='https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=37.727839&lon=-83.635396&maxDistance=100&minDiff='
 
-let grade = document.getElementById("grade").value 
-const url = apiURL + grade + "&maxDiff=5.14&key=200424196-5fdf40349774a101d0c0d762b625f5b1"
+let gradeMin = document.getElementById("gradeMin").value 
+let gradeMax = document.getElementById("gradeMax").value 
+const url = apiURL + gradeMin + "&maxDiff=" + gradeMax + "&key=200424196-5fdf40349774a101d0c0d762b625f5b1"
 
 let results = fetch(url);
     results.then(
